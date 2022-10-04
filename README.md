@@ -18,8 +18,7 @@ To get a local copy up and running follow these simple example steps.
 - Get to the directory you want to clone the project
 - Open the command promt in this directory
 - Type `git@github.com:bengigo/school-library.git`
-- Go to the repository folder in your command prompt cd morse-decoder
-- Go to command line and run ruby morse-decoder.rb or you can just paste the code on IRB (Interactive Ruby)
+- Go to the repository folder in your command prompt cd school-library
 
 To setup linters on your local environment, please follow these steps.
 
@@ -34,8 +33,8 @@ IRB(Interactive Ruby), VSCode, WSL(for Windows OS), for linters on local environ
 ## 👤 Author
 
 - GitHub: [@bengigo](https://github.com/bengigo)
-- Twitter: @twitterhandle
-- LinkedIn: 
+- Twitter: [@bengi_gb](https://twitter.com/bengi_gb)
+- LinkedIn: [LinkedIn](https://www.linkedin.com/in/bengigenc/)
 
 ## 🤝 Contributing
 
