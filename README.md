@@ -40,7 +40,7 @@ IRB(Interactive Ruby), VSCode, WSL(for Windows OS), for linters on local environ
 
 Contributions, issues, and feature requests are welcome!
 
-Feel free to check the [issues page](../../issues/).
+Feel free to check the [issues page](https://github.com/bengigo/school-library/issues).
 
 ## Show your support
 
