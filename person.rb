@@ -26,8 +26,6 @@ class Person < Nameable
     is_of_age? || parent_permission
   end
 
-
-
   attr_accessor :name, :age
   attr_reader :id
 end
