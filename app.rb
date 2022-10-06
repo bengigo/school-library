@@ -1,4 +1,7 @@
 class App
+    # present user a list of options to perform
+
+    
     # list al books
 
     # list all people
