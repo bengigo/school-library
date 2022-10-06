@@ -2,12 +2,13 @@
 require_relative 'app'
 
 def main
+  @app = App.new
+  # app.run
+
   puts 'Welcome to School Library 📚'
   puts ''
   present_options
   perform_action
-  app = App.new
-  app.run
 end
 
 def present_options
@@ -25,9 +26,11 @@ end
 def check_input(input)
   case input
   when 1
-    puts 'chosen option is 1'
+    # puts 'chosen option is 1'
+    @app.list_books
   when 2
-    puts 'chosen option is 2'
+    # puts 'chosen option is 2'
+    @app.list_people
   when 3
     puts 'chosen option is 3'
   when 4
