@@ -37,7 +37,6 @@ class App
       list_books
     when 2
       puts 'chosen option is 2'
-
       # remove run after implementing action
       run
     when 3
@@ -46,8 +45,6 @@ class App
       run
     when 4
       create_book
-      # remove run after implementing action
-      run
     when 5
       puts 'chosen option is 5'
       # remove run after implementing action
@@ -61,6 +58,7 @@ class App
     else
       puts 'Invalid option! Please check the list again.'
       run
+      # if still too many lines vs, possible to create a def for the else
     end
   end
   # rubocop:enable Metrics/CyclomaticComplexity
@@ -82,7 +80,17 @@ class App
   # create teacher
 
   # create book
-
+  def create_book
+    puts 'Title:'
+    title = gets.chomp
+    puts 'Author:'
+    author = gets.chomp
+    book = Book.new(title, author)
+    @books.push(book)
+    puts "Book #{book.title} created successfully ✔️"
+    puts ''
+    run
+  end
 
   # create rental
 end
