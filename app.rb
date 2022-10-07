@@ -26,7 +26,34 @@ class App
     end
   end
 
-  # create a person (either student or teacher)
+  # create a person (either student or teacher, not just person)
+  #create student
+  def create_person
+    puts 'Do you want to create a student (1) or a teacher (2)?:'
+    input = gets.chomp.to_i
+    if input == 1
+      puts 'Age:'
+      age = gets.chomp.to_i
+      puts 'Name:'
+      name = gets.chomp.to_i
+      puts 'Has parent permission? [Y/N]'
+      permission = gets.chomp.upcase
+      case permission
+      when 'Y'
+        permission = true
+      when 'N'
+        permission = false
+      end
+      puts 'Person (student) created successfully'
+
+      student = Student.new(nil, age, name, parent_permission: permission)
+
+
+      @people.push(student)
+    end
+
+    #create teacher
+  end
 
   # creat a book
 
