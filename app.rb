@@ -17,7 +17,6 @@ class App
     check_input
   end
 
-  # present options
   def present_options
     puts 'Please choose an option by entering a number:'
     puts '1 - List all books'
@@ -29,13 +28,10 @@ class App
     puts '7 - Exit'
   end
 
-  # choose option
   def check_input
     input = gets.chomp.to_i
     perform_option(input)
   end
-
-  # perform option
 
   # rubocop:disable Metrics/CyclomaticComplexity
   def perform_option(input)
@@ -44,31 +40,23 @@ class App
       list_books
     when 2
       list_people
-      # remove run after implementing action
-      run
     when 3
       create_person
     when 4
       create_book
     when 5
       create_rental
-      # remove run after implementing action
-      run
     when 6
       list_rental
-      # remove run after implementing action
-      run
     when 7
       exit
     else
-      puts 'Invalid option! Please check the list again.'
+      puts 'INVALID OPTION! PLEASE CHECK THE LIST AGAIN.'
       run
-      # if still too many lines vs, possible to create a def for the else
     end
   end
   # rubocop:enable Metrics/CyclomaticComplexity
 
-  # list books
   def list_books
     puts '📕📗📘📙'
     @books.each do |book|
@@ -78,7 +66,6 @@ class App
     run
   end
 
-  # list people
   def list_people
     @people.each do |person|
       puts "[#{person.class.name}] Name: #{person.name}, ID: #{person.id}, Age: #{person.age}"
@@ -87,7 +74,6 @@ class App
     run
   end
 
-  # create person
   def create_person
     puts 'Do you want to create a student (1) or a teacher (2)?'
     input = gets.chomp.to_i
@@ -143,11 +129,9 @@ class App
     teacher = Teacher.new(age, specialization, name, parent_permission: permission)
     @people.push(teacher)
     puts "Teacher (#{teacher.name}) created successfully"
+    puts ''
   end
-  # create student
-  # create teacher
 
-  # create book
   def create_book
     puts 'Title:'
     title = gets.chomp
@@ -160,7 +144,6 @@ class App
     run
   end
 
-  # create rental
   def create_rental
     puts 'Select the book from the following list by number (not ID)'
     @books.each_with_index do |book, index|
@@ -179,6 +162,7 @@ class App
     rental = Rental.new(date, @books[selected_book], @people[selected_person])
     @rentals.push(rental)
     puts 'Rental created successfully'
+    puts ''
     run
   end
 
