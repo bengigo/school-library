@@ -12,6 +12,10 @@ class App
   end
 
   # choose option
+  def check_input
+    input = gets.chomp.to_i
+    perform_option(input)
+  end
 
   # perform option
 
