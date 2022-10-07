@@ -41,7 +41,7 @@ class App
     when 1
       list_books
     when 2
-      puts 'chosen option is 2'
+      list_people
       # remove run after implementing action
       run
     when 3
@@ -77,6 +77,13 @@ class App
   end
 
   # list people
+  def list_people
+    @people.each do |person|
+      puts "[#{person.class.name}] Name: #{person.name}, ID: #{person.id}, Age: #{person.age}"
+    end
+    puts ''
+    run
+  end
 
   # create person
   def create_person
