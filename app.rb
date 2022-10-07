@@ -1,5 +1,6 @@
 require_relative 'book'
 require_relative 'student'
+require_relative 'teacher'
 
 class App
   attr_reader :people
@@ -114,9 +115,26 @@ class App
   end
 
   def create_teacher
-    puts 'teacher teacher'
-  end
+    puts 'Age: '
+    age = gets.chomp.to_i
+    puts 'Specialization: '
+    specialization = gets.chomp
+    puts 'Name: '
+    name = gets.chomp
 
+    puts 'Has parent permission? [Y/N]'
+    permission = gets.chomp.upcase
+    case permission
+    when 'Y'
+      permission = true
+    when 'N'
+      permission = false
+    end
+
+    teacher = Teacher.new(age, specialization, name, parent_permission: permission)
+    @people.push(teacher)
+    puts "Teacher (#{teacher.name}) created successfully"
+  end
   # create student
   # create teacher
 
