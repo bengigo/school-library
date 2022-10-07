@@ -32,8 +32,7 @@ def check_input(input)
     # puts 'chosen option is 2'
     @app.list_people
   when 3
-    # puts 'chosen option is 3'
-    @app.create_person
+    puts 'chosen option is 3'
   when 4
     puts 'chosen option is 4'
   when 5
