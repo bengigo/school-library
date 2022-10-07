@@ -1,13 +1,15 @@
 require_relative 'book'
 require_relative 'student'
 require_relative 'teacher'
+require_relative 'rental'
 
 class App
-  attr_reader :people
+  attr_reader :people, :rentals
 
   def initialize
     @books = []
     @people = []
+    @rentals = []
   end
 
   def run
@@ -49,7 +51,7 @@ class App
     when 4
       create_book
     when 5
-      puts 'chosen option is 5'
+      create_rental
       # remove run after implementing action
       run
     when 6
@@ -159,4 +161,24 @@ class App
   end
 
   # create rental
+  def create_rental
+    puts 'Select the book from the following list by number (not ID)'
+    @books.each_with_index do |book, index|
+      puts "#{index}) Title: '#{book.title}', Author: '#{book.author}'"
+    end
+    selected_book = gets.chomp.to_i
+    puts 'Date:'
+    date = gets.chomp
+
+    puts 'Select a person from the following list by number (not ID)'
+    @people.each_with_index do |person, index|
+      puts "#{index}) [#{person.class.name}] Name: #{person.name}, ID: #{person.id}, Age: #{person.age}"
+    end
+    selected_person = gets.chomp.to_i
+
+    rental = Rental.new(date, @books[selected_book], @people[selected_person])
+    @rentals.push(rental)
+    puts 'Rental created successfully'
+    run
+  end
 end
