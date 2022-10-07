@@ -1,10 +1,12 @@
 require_relative 'book'
 
 class App
-  # list al books
+  attr_reader :people
 
+  # list al books
   def initialize
     @books = []
+    @people = []
   end
 
   def list_books
@@ -17,7 +19,11 @@ class App
 
   #   list all people
   def list_people
-    puts 'Here is the list of every person'
+    # puts 'Here is the list of every person'
+    puts '🦹‍♀️🧝🏽‍♀️🕵️‍♀️'
+    @people.each do |person|
+      puts "[#{person.class.name}] Name: #{person.name}, ID: #{person.id}, Age: #{person.age}"
+    end
   end
 
   # create a person (either student or teacher)

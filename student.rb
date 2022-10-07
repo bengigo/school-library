@@ -1,4 +1,5 @@
-require './person'
+# require './person'
+require_relative 'person'
 require_relative 'classroom'
 
 class Student < Person
