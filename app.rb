@@ -23,8 +23,8 @@ class App
   def list_people
     # puts 'Here is the list of every person'
     puts '🦹‍♀️🧝🏽‍♀️🕵️‍♀️'
-    @people.each do |person|
-      puts "[#{person.class.name}] Name: #{person.name}, ID: #{person.id}, Age: #{person.age}"
+    @people.each do |_person|
+      puts "Name: #{person.name}, ID: #{person.id}, Age: #{person.age}"
     end
   end
 
@@ -43,7 +43,23 @@ class App
 
   # create student
   def create_student
-    puts 'student'
+    puts 'Age:'
+    age = gets.chomp.to_i
+    puts 'Name:'
+    name = gets.chomp
+    puts 'Has parent permission? [Y/N]'
+    permission = gets.chomp.upcase
+    case permission
+    when 'Y'
+      permission = true
+    when 'N'
+      permission = false
+    end
+
+    student = Student.new(nil, age, name, parent_permission: permission)
+    @people.push(student)
+    puts "Person (student: #{student.name} ) created successfully"
+    # call present option from main
   end
 
   # create teacher
