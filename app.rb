@@ -1,4 +1,9 @@
 class App
+  def run
+    present_options
+    check_input
+  end
+
   # present options
   def present_options
     puts 'Please choose an option by entering a number:'
@@ -18,6 +23,42 @@ class App
   end
 
   # perform option
+
+  # rubocop:disable Metrics/CyclomaticComplexity
+  def perform_option(input)
+    case input
+    when 1
+      puts 'chosen option is 1'
+      # remove run after implementing action
+      run
+    when 2
+      puts 'chosen option is 2'
+      # remove run after implementing action
+      run
+    when 3
+      puts 'chosen option is 3'
+      # remove run after implementing action
+      run
+    when 4
+      puts 'chosen option is 4'
+      # remove run after implementing action
+      run
+    when 5
+      puts 'chosen option is 5'
+      # remove run after implementing action
+      run
+    when 6
+      puts 'chosen option is 6'
+      # remove run after implementing action
+      run
+    when 7
+      exit
+    else
+      puts 'Invalid option! Please check the list again.'
+      run
+    end
+  end
+  # rubocop:enable Metrics/CyclomaticComplexity
 
   # list books
 
