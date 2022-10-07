@@ -1,4 +1,6 @@
 require_relative 'book'
+require_relative 'student'
+require_relative 'teacher'
 
 class App
   attr_reader :people
@@ -13,7 +15,7 @@ class App
     # puts 'Here are all the books in the library'
     puts '📚📚📚'
     @books.each do |book|
-      puts "📕 Title: '#{book.title}', Author: '#{book.author}'"
+      puts "Title: '#{book.title}', Author: '#{book.author}'"
     end
   end
 
@@ -27,7 +29,27 @@ class App
   end
 
   # create a person (either student or teacher)
+  def create_person
+    puts 'Do you want to create a student (1) or a teacher (2)?'
+    input = gets.chomp.to_i
 
+    case input
+    when 1
+      create_student
+    when 2
+      create_teacher
+    end
+  end
+
+  # create student
+  def create_student
+    puts 'student'
+  end
+
+  # create teacher
+  def create_teacher
+    puts 'teacher'
+  end
   # creat a book
 
   # create a rental

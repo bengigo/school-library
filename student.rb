@@ -1,4 +1,3 @@
-# require './person'
 require_relative 'person'
 require_relative 'classroom'
 
