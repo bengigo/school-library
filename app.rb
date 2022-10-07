@@ -1,8 +1,12 @@
 require_relative 'book'
+require_relative 'student'
 
 class App
+  attr_reader :people
+
   def initialize
     @books = []
+    @people = []
   end
 
   def run
@@ -40,9 +44,7 @@ class App
       # remove run after implementing action
       run
     when 3
-      puts 'chosen option is 3'
-      # remove run after implementing action
-      run
+      create_person
     when 4
       create_book
     when 5
@@ -76,6 +78,45 @@ class App
   # list people
 
   # create person
+  def create_person
+    puts 'Do you want to create a student (1) or a teacher (2)?'
+    input = gets.chomp.to_i
+
+    case input
+    when 1
+      create_student
+    when 2
+      create_teacher
+    end
+
+    run
+  end
+
+  def create_student
+    puts 'Age: '
+    age = gets.chomp.to_i
+    puts 'Name: '
+    name = gets.chomp
+
+    puts 'Has parent permission? [Y/N]'
+    permission = gets.chomp.upcase
+    case permission
+    when 'Y'
+      permission = true
+    when 'N'
+      permission = false
+    end
+
+    student = Student.new(nil, age, name, parent_permission: permission)
+    @people.push(student)
+    puts "Student (#{student.name}) created successfully"
+    puts ''
+  end
+
+  def create_teacher
+    puts 'teacher teacher'
+  end
+
   # create student
   # create teacher
 
