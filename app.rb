@@ -55,7 +55,7 @@ class App
       # remove run after implementing action
       run
     when 6
-      puts 'chosen option is 6'
+      list_rental
       # remove run after implementing action
       run
     when 7
@@ -180,5 +180,17 @@ class App
     @rentals.push(rental)
     puts 'Rental created successfully'
     run
+  end
+
+  def list_rental
+    puts 'ID of person'
+    id = gets.chomp.to_i
+    puts "Rentals by PersonID:#{id}"
+    rentals = @rentals.select { |rental| id == rental.person.id }
+    rentals.each do |item|
+      puts "Date: #{item.date},  Book #{item.book.title}, by #{item.book.author}"
+      puts ''
+      run
+    end
   end
 end
