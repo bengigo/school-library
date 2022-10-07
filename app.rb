@@ -45,8 +45,10 @@ class App
   def create_student
     puts 'Age:'
     age = gets.chomp.to_i
+
     puts 'Name:'
     name = gets.chomp
+
     puts 'Has parent permission? [Y/N]'
     permission = gets.chomp.upcase
     case permission
@@ -64,8 +66,27 @@ class App
 
   # create teacher
   def create_teacher
-    puts 'teacher'
+    print 'Age: '
+    age = gets.chomp.to_i
+    print 'Specialization: '
+    specialization = gets.chomp
+    print 'Name: '
+    name = gets.chomp
+
+    print 'Has parent permission? [Y/N]'
+    permission = gets.chomp.upcase
+    case permission
+    when 'Y'
+      permission = true
+    when 'N'
+      permission = false
+    end
+
+    teacher = Teacher.new(age, specialization, name, parent_permission: permission)
+    @people.push(teacher)
+    puts "Person (teacher: #{teacher.name} ) created successfully"
   end
+
   # creat a book
 
   # create a rental
