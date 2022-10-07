@@ -18,7 +18,7 @@ class App
   end
 
   def present_options
-    puts 'Please choose an option by entering a number:'
+    puts 'PLEASE CHOOSE AN OPTION BY ENTERING A NUMBER:'
     puts '1 - List all books'
     puts '2 - List all people'
     puts '3 - Create a person'
@@ -62,7 +62,6 @@ class App
     @books.each do |book|
       puts "#{book.title} by #{book.author}"
     end
-    puts ''
     run
   end
 
@@ -70,7 +69,6 @@ class App
     @people.each do |person|
       puts "[#{person.class.name}] Name: #{person.name}, ID: #{person.id}, Age: #{person.age}"
     end
-    puts ''
     run
   end
 
@@ -106,7 +104,6 @@ class App
     student = Student.new(nil, age, name, parent_permission: permission)
     @people.push(student)
     puts "Student (#{student.name}) created successfully"
-    puts ''
   end
 
   def create_teacher
@@ -129,7 +126,6 @@ class App
     teacher = Teacher.new(age, specialization, name, parent_permission: permission)
     @people.push(teacher)
     puts "Teacher (#{teacher.name}) created successfully"
-    puts ''
   end
 
   def create_book
@@ -140,7 +136,6 @@ class App
     book = Book.new(title, author)
     @books.push(book)
     puts "Book #{book.title} created successfully ✔️"
-    puts ''
     run
   end
 
@@ -162,7 +157,6 @@ class App
     rental = Rental.new(date, @books[selected_book], @people[selected_person])
     @rentals.push(rental)
     puts 'Rental created successfully'
-    puts ''
     run
   end
 
@@ -170,11 +164,18 @@ class App
     puts 'ID of person'
     id = gets.chomp.to_i
     puts "Rentals by PersonID:#{id}"
+
     rentals = @rentals.select { |rental| id == rental.person.id }
-    rentals.each do |item|
-      puts "Date: #{item.date},  Book #{item.book.title}, by #{item.book.author}"
-      puts ''
+
+    if rentals.empty?
+      puts 'no rental'
       run
+    else
+
+      rentals.each do |item|
+        puts "Date: #{item.date},  Book #{item.book.title}, by #{item.book.author}"
+        run
+      end
     end
   end
 end
