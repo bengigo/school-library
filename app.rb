@@ -1,4 +1,10 @@
+require_relative 'book'
+
 class App
+  def initialize
+    @books = []
+  end
+
   def run
     present_options
     check_input
@@ -28,11 +34,10 @@ class App
   def perform_option(input)
     case input
     when 1
-      puts 'chosen option is 1'
-      # remove run after implementing action
-      run
+      list_books
     when 2
       puts 'chosen option is 2'
+
       # remove run after implementing action
       run
     when 3
@@ -40,7 +45,7 @@ class App
       # remove run after implementing action
       run
     when 4
-      puts 'chosen option is 4'
+      create_book
       # remove run after implementing action
       run
     when 5
@@ -61,6 +66,14 @@ class App
   # rubocop:enable Metrics/CyclomaticComplexity
 
   # list books
+  def list_books
+    puts '📕📗📘📙'
+    @books.each do |book|
+      puts "#{book.title} by #{book.author}"
+    end
+    puts ''
+    run
+  end
 
   # list people
 
@@ -69,6 +82,7 @@ class App
   # create teacher
 
   # create book
+
 
   # create rental
 end
